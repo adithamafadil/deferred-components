@@ -2,7 +2,7 @@ name: deferred_components
 description: A new Flutter project.
 publish_to: "none"
 
-version: 1.0.0+1
+version: 1.0.5+6
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -23,3 +23,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   deferred-components:
+    - name: component
+      libraries:
+        - package:components_module/components_module.dart
