@@ -25,4 +25,8 @@
 loading-units:
   - id: 2
     libraries:
-      - package:components_module/components_module.dart
+      - package:deferred_components/feature/screens/cart_screen/page/cart_page.dart
+      - package:deferred_components/feature/screens/cart_screen/widgets/add_decrease_button.dart
+  - id: 3
+    libraries:
+      - package:deferred_components/feature/screens/detail_screen/page/detail_page.dart

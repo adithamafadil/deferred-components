@@ -1,7 +1,12 @@
-import 'package:deferred_components/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:deferred_components/di/injection.dart';
+import 'package:deferred_components/feature/navigation/routes/my_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -10,35 +15,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      initialRoute: MyRoutes.initialRoute,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyNewScreen(),
-    );
-  }
-}
-
-class MyNewScreen extends StatelessWidget {
-  const MyNewScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Go to Home'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MyHomePage(title: 'title'),
-              ),
-            );
-          },
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black),
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       ),
+      getPages: MyRoutes.pages().map((page) => page.getPage()).toList(),
     );
   }
 }

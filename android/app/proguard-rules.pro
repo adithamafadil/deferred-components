@@ -4,5 +4,4 @@
 -keep class io.flutter.view.**  { *; }
 -keep class io.flutter.**  { *; }
 -keep class io.flutter.plugins.**  { *; }
--keep class deferred_components.** { *; }
--keep class com.example.deferred_components.** { *; }
+-keep class dil.test.deferred_components.** { *; }

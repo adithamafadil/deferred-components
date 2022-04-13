@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="componentName">component</string>
+    <string name="cartName">cart</string>
+    <string name="detailName">detail</string>
 </resources>
 
